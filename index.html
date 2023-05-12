@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia"> -->
+    <link rel="stylesheet" href="assets/style.css">
+    <title>JavaScript Trivia</title>
+</head>
+<body>
+    <!-- Main outer Div -->
+    <div class="outer-space">
+
+        <!-- top bar section -->
+        <div class="score-timer-bar">               
+            <button id="viewHighScore">View High Scores</button>
+            <p >Timer: <span id="timerDisplay">0</span> </p>
+        </div>
+
+        <!-- inner div -->
+        <div class="content">
+
+            <!-- Part 1 -->
+
+            <!-- main header/quiz intro -->
+            <header class="starter">
+                <!-- id="start" -->
+                <div id="opening"> 
+                    <h1>JavaScript Trivia</h1>
+                    <p>Let's start this quiz!</p>
+                    <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p> <br><br>
+                    <button id="startQuiz">Start Quiz!</button>
+                </div>
+
+            </header>
+
+            <!-- main quiz content -->
+            <main>
+
+                <!-- Part 2 -->
+                <section class="quizContainer" id="quizContainer" style="display: none;">
+                    <h2 id="question">Question here</h2>
+                    <ul class="choice-block">
+                        <!-- This will be generated in Javascript -->
+                    <li><button class="choice" onclick="" id="ch1">Answer1</button></li>
+                    <li><button class="choice" id="ch2">Answer2</button></li>
+                    <li><button class="choice" id="ch3">Answer3</button></li>
+                    <li><button class="choice" id="ch4">Answer4</button></li>
+                    </ul>
+                    <hr id="elementBreak" style="display: none;">
+                    <p id="qAnswer" style="display: none;"></p>
+                </section>
+                
+                <!-- Part 3  -->
+
+                <section class="end" style="display: none;">
+                    <h2 id="timeUp">Time's Up!</h2>
+                    <p id="endScore">Your score: 00</p>
+
+
+                    <label for="" id="initialBar">Enter Initials</label>
+                    <input type="text">
+                    <button type="submit" id="initialButton" class="buttonPress">Submit</button>
+                </section>
+
+                <!-- Part 4 -->
+                <section class="scoreScreen" style="display: none;">
+                    <h2 id="chart">Highscores:</h2>
+                    <ol id="scoreChart">
+                        <!-- This will be generated in Javascript -->
+                        <li>RT - 30</li>
+                        <li>RT - 30</li>
+                        <li>RT - 30</li>
+                    </ol>
+                    <button type="submit" class="buttonPress" id="goBack">Go Back</button>
+                    <button type="submit" class="buttonPress" id="clearH">Clear Highscores</button>
+                </section>
+
+            </main>
+
+        </div>
+
+
+    </div>
+    <script src="assets/index.js"></script>
+</body>
+</html>

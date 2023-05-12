@@ -1,0 +1,136 @@
+/* global decorations */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* border: 1px solid rgb(255, 255, 255); */
+    /* edit main font later (not sure */
+    font-family: "Sofia", sans-serif;
+    color: rgb(250, 244, 244);
+}
+
+body {
+    background-image: url("../assets/images/lucas-kapla-wQLAGv4_OYs-unsplash.jpg");
+    
+    background-color: rgb(12, 12, 12);
+    overflow: hidden;
+    /* text-align: center; */
+}
+
+p {
+    font-size: 20px;
+}
+
+button {
+    outline: none;
+    background-color: #000000;
+    font-size: 20px;
+    
+}
+
+h1, h2 {
+    font-size: 25px;
+
+    background: linear-gradient(90deg, #ef3b80, #200dafca);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+}
+
+/* Main outer section */
+.outer-space {
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+/* bar container */
+/* implement felx box instead of float */
+.score-timer-bar p {
+    float: right;
+}
+
+/* inner div */
+.content {
+    background: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+    height: 100%;
+    width: 50%;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* header/quiz section content */
+.starter, main {
+    display: block;
+    margin-bottom: 30vh;
+    margin-left: 10%;
+    Margin-right:10%;
+    background-color: rgb(8, 8, 9);
+}
+
+.starter p {
+    text-align: center;
+}
+
+.starter button {
+    display: block;
+    margin: 0 auto;
+    background:#fdfdfd;
+    color:#000000;
+    border-radius: 5px 5px;
+
+
+}
+
+#startQuiz:hover {
+    background: #ff5235;
+    color: #e7f1fa;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* main quiz content */
+
+main {
+    display: block;
+}
+
+/* quiz screen */
+.quizContainer {
+    display: none;
+}
+
+
+/* finishing screen */
+.end {
+    display: none;
+}
+
+/* Score screen */
+.score-screen {
+    display: none;
+}
+
+
+.score-screen ol {
+    max-height: 200px;
+}
+
+/* add property or pesdue  */
+.score-screen ol:hover {
+    overflow-y: scroll;
+}
