@@ -24,4 +24,4 @@ SO THAT I can gauge my progress compared to my peers
 * THEN I can save my initials and my score
 
 ## Challenges
-I've familarized myself with HTMHL and experimeneted with CSS, however this challenge was focused on JavaScript fundamentals and even if I got the scope of it down. This assignemnt proved to be a challange. I utilized my available resources and tweaked my code multiple times; which helped to start the time but once additional functions were added, the code crashed. I will work on this assignment on my dowmtime and will push all changes to Github once complete. 
+I've familiarized myself with HTMHL and experimented with CSS, however this challenge was focused on JavaScript fundamentals and even if I got the scope of it down. This assignment proved to be a challenge. I utilized my available resources and tweaked my code multiple times; which helped to start the time but once additional functions were added, the code crashed. I will work on this assignment on my downtime and will push all changes to GitHub once complete.
