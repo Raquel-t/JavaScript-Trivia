@@ -36,7 +36,7 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Mock-Up
 
-<video src="Quiz%20Game%20Demo.mp4" controls title="Title"></video>
+![Demo](<Quiz Game Demo.gif>)
 
 ## Diployed URL
 
