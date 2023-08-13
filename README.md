@@ -1,4 +1,6 @@
 # JavaScript-Trivia
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+
 Timed quiz on JavaScript fundamentals
 
 ## User Story 
@@ -29,7 +31,6 @@ SO THAT I can gauge my progress compared to my peers
 * [Description](#description)
 * [Usage](#usage)
 * [Resources](#resources)
-* [License](#license)
 * [Contributors](#contributors)
 * [Questions](#questions)
 
