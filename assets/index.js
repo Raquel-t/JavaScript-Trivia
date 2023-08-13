@@ -10,189 +10,239 @@
 // WHEN the game is over
 // THEN I can save my initials and score
 
-// My Questions!!!!
+// Questions!!
 const questions = [
     {
-        question: "Arrays in JavaScript are defined by which of hte following statements?",
+        question: "Arrays in JavaScript are defined by which of the following statements?",
         answers: [
             { text: "It is an ordered list of values", correct: true },
-            { text: "It is an ordered list of objects", correct: false}, 
-            { text: "It is an ordered list of string", correct: false},
-            { text: "It is an ordered list of functions", correct: false},
+            { text: "It is an ordered list of objects", correct: false }, 
+            { text: "It is an ordered list of strings", correct: false },
+            { text: "It is an ordered list of functions", correct: false },
         ]
     },
     {
-        question:"How can you add a comment in JavaScript?",
+        question: "How can you add a comment in JavaScript?",
         answers: [
-            { text: "//This is a comment", correct: true},
-            { text: "`This is a comment", correct: false},
-            { text: "<!--This is a Comment-->", correct: false},
-            { text: "This is a comment", correct: false},
+            { text: "//This is a comment", correct: true },
+            { text: "`This is a comment", correct: false },
+            { text: "<!--This is a Comment-->", correct: false },
+            { text: "This is a comment", correct: false },
         ] 
     },
     {
-        question:"How do you call a function named \"myFunction\"?",
+        question: "How do you call a function named 'myFunction'?",
         answers: [
-            { text: "call myFunction()", correct: false},
-            { text: "myFunction()", correct: true},
-            { text: "function:myfunction()", correct: false},
-            { text: "function myFunction", correct: false},
+            { text: "call myFunction()", correct: false },
+            { text: "myFunction()", correct: true },
+            { text: "function:myfunction()", correct: false },
+            { text: "function myFunction()", correct: false },
         ]    
     },
     {
-        question:"How do you round the number 7.25, to the nearest integer?",
+        question: "How do you round the number 7.25 to the nearest integer?",
         answers: [
-            { text: "rnd(7.25)", correct: false},
-            { text: "Math.rnd(7.25)", correct: false},
-            { text: "round(7.25)", correct: false},
-            { text: "Math.round(7.25)", correct: true},
+            { text: "rnd(7.25)", correct: false },
+            { text: "Math.rnd(7.25)", correct: false },
+            { text: "round(7.25)", correct: false },
+            { text: "Math.round(7.25)", correct: true },
         ]    
     },
     {
-        question:"How do you declare a JavaScript variable?",
+        question: "How do you declare a JavaScript variable?",
         answers: [
-            { text: "v carName;", correct: false},
-            { text: "variable carName;", correct: false},
-            { text: "var carName;", correct: true},
-            { text: "var carname;", correct: false},
+            { text: "v carName;", correct: false },
+            { text: "variable carName;", correct: false },
+            { text: "var carName;", correct: true },
+            { text: "var carname;", correct: false },
         ]    
     },
     {
-        question: "What is the correct place to insert a JavaScript",
+        question: "What is the correct place to insert a JavaScript?",
         answers: [
-            { text: "The <body> section", correct: false},
-            { text: "The <head> section", correct: false},
-            { text: "Both the <head> and the <body> section are correct", correct: true},
-            { text: "The <footer> section", correct: false},
+            { text: "The <body> section", correct: false },
+            { text: "The <head> section", correct: false },
+            { text: "Both the <head> and the <body> section are correct", correct: true },
+            { text: "The <footer> section", correct: false },
         ]    
     }
-
 ];
 
 const questionElement = document.getElementById("question");
 const timerDisplay = document.getElementById("timerDisplay");
 
-// part 1 of HTML
+// Part 1 of HTML
 var starter = document.querySelector(".starter");
-// var openingDiv = document.getElementsById("start");
 var buttonClick = document.getElementById("startQuiz");
 
-// part 2 of HTML
-var quizContainer = document.getElementById(".quizContainer");
+// Part 2 of HTML
+var quizContainer = document.getElementById("quizContainer");
 var question = document.getElementById("question");
 var option1 = document.getElementById("ch1");
 var option2 = document.getElementById("ch2");
 var option3 = document.getElementById("ch3");
 var option4 = document.getElementById("ch4");
-var response = document.getElementById("response");
+var elementBreak = document.getElementById("elementBreak");
+var qAnswer = document.getElementById("qAnswer");
 
-// part 3 of HTML
+// Part 3 of HTML
 var end = document.querySelector(".end");
 var timeUp = document.getElementById("timeUp");
-var endScore = document.getElementById('endScore');
-var initialBar = document.getElementById("initialBar")
+var endScore = document.getElementById("endScore");
+var initialBar = document.getElementById("initialBar");
 var initialButton = document.getElementById("initialButton");
 
-
-
 var scoreScreen = document.querySelector(".scoreScreen");
-
-var chart = document.getElementById("chart");
-var goBack = document.getElementById("goBach");
-var chearH = document.getElementById("clearH");
+var scoreChart = document.getElementById("scoreChart");
+var goBack = document.getElementById("goBack");
+var clearH = document.getElementById("clearH");
 var viewHighScore = document.getElementById("viewHighScore");
-var scoreChart = document.getElementById("#scoreChart");
 
-let questionindex = 0;
-var quizTime = 60
-var qnumber = 0;
-var qAnswer = "";
+let questionIndex = 0;
+var quizTime = 60;
 var scoreResult = 0;
 var timeLeft = quizTime;
-let highScores = [];
+let highScores = localStorage.getItem("highscores") ? JSON.parse(localStorage.getItem("highscores")) : []
 let quizEnded = false;
 
-
-// quiz timer function
-
+// Quiz timer function
 function qTimer() {
-    qStart()
-    quizTime = 60
+    console.log("Quiz timer started");
+
 
     var timerInterval = setInterval(function() {
         timeLeft--;
-        timerDisplay.textContent = "Time: " +  timeLeft;
+        timerDisplay.textContent = "Time: " + timeLeft;
 
-        if(timeLeft <= 0 || quizEnded == true); {
-                clearInterval(timerInterval);
-             // Calls enGame function
-                endGame();
-            }
-    }, 1000)
-  return;
-
+        if (timeLeft <= 0 || quizEnded) {
+            clearInterval(timerInterval);
+            // Call endGame function
+            endGame();
+        }
+    }, 1000);
 }
 
-buttonClick = addEventListener("click", startQuizClicked);
 
-// // // quiz function
+// Quiz function
 function qStart() {
+    qTimer()
+    console.log("Quiz started");
     displayQuestion();
+    quizContainer.style.display = "block";
+    starter.style.display = "none";
+    end.style.display = "none";
+    scoreScreen.style.display = "none";
+    elementBreak.style.display = "none";
+    qAnswer.style.display = "none";
 }
 
 function displayQuestion() {
-    quizContainer = document.querySelector(".quizContainer");
-    question.textContent = questions[questionindex].question;
-    option1.textContent = questions[questionindex].answers[0];
-    option2.textContent = questions[questionindex].answers[1];
-    option3.textContent = questions[questionindex].answers[2];
-    option4.textContent = questions[questionindex].answers[3];
+    questionElement.textContent = questions[questionIndex].question;
+    option1.textContent = questions[questionIndex].answers[0].text;
+    option1.value = questions[questionIndex].answers[0].text;
+    option2.textContent = questions[questionIndex].answers[1].text;
+    option2.value = questions[questionIndex].answers[1].text;
+    option3.textContent = questions[questionIndex].answers[2].text;
+    option3.value = questions[questionIndex].answers[2].text;
+    option4.textContent = questions[questionIndex].answers[3].text;
+    option4.value = questions[questionIndex].answers[3].text;
 }
 
-
-// If answered question incorrectly points are subtracted.
-// answer check function
+// Answer check function
 function checkAnswer(answer) {
-    var elementBreak = document.getElementById("elementBreak");
-    elementBreak.style.display = "block";
-    qAnswer.style.display = "block";
+    console.log("Checking answer:", answer);
+    
+    if (answer === questions[questionIndex].answers.find(a => a.correct).text) {
+        scoreResult += 10;  
+    } else {
+        timeLeft -= 10;   
+        timerDisplay.textContent = "Time: " + timeLeft; 
+        elementBreak.style.display = "block";
+        qAnswer.style.display = "block";
+        qAnswer.textContent = "Correct Answer: " + questions[questionIndex].answers.find(a => a.correct).text;
+    }
+
+    questionIndex++;
+
+    if (questionIndex < questions.length) {
+        displayQuestion();
+    } else {
+        endGame();
+    }
+}
+
+// End game function
+function endGame() {
+    console.log("Quiz ended");
+    quizEnded = true;
+    quizContainer.style.display = "none";
+    end.style.display = "block";
+    timeUp.textContent = "Time's Up!";
+    endScore.textContent = "Your score: " + scoreResult;
 }
 
 
 
+function displayHighScores() {
+    scoreChart.innerHTML = "";
+    highScores.forEach(function(score) {
+        console.log(score)
+        var li = document.createElement("li");
+        li.textContent = score;
+        scoreChart.append(li);
+        scoreScreen.style.display = "block";
+    });
+}
 
-// Game is over once all questions are answered or timer reaches 0.
-// endgame function
-// function endGame () {
-    
-// }
+function resetGame() {
+    quizEnded = false;
+    questionIndex = 0;
+    quizTime = 60;
+    scoreResult = 0;
+    timeLeft = quizTime;
+    timerDisplay.textContent = "Time: " + timeLeft;
+    initialBar.value = "";
+}
 
+// Event listeners
+buttonClick.addEventListener("click", qStart);
 
+goBack.addEventListener("click", function() {
+    starter.style.display = "block";
+    scoreScreen.style.display = "none";
+});
 
-// Enter initials and score once game is over. 
-// enter score function
-// function enterScore(){
+clearH.addEventListener("click", function() {
+    scoreChart.innerHTML = "";
+    highScores = [];
+    localStorage.removeItem("highscores");
+});
 
-// }
+viewHighScore.addEventListener("click", function() {
+    starter.style.display = "none";
+    scoreScreen.style.display = "block";
+});
 
+initialButton.addEventListener("click", function() {
+    var initials = document.querySelector("#initialBar").value;
+    var scoreEntry = initials + " - " + scoreResult;
+    highScores.push(scoreEntry);
+    localStorage.setItem("highscores", JSON.stringify(highScores))
+    displayHighScores();
+});
 
+// reset event listener
+goBack.addEventListener("click", function() {
+    resetGame();
+    starter.style.display = "block";
+    scoreScreen.style.display = "none";
+    end.style.display = "none"; 
+});
 
-
-
-// score chart function
-// function displayHighScores() {
-
-// }
-   
-
-// addEventlistener() / onclick button function
-// buttonClick = addEventListener("click", startQuizClicked);
-// option1.addEventListener("click" choose1);
-// option2.addEventListener("click" choose2);
-// option3.addEventListener("click" choose3);
-// option4.addEventListener("click" choose4);
-
-// SubmitEvent.addEventListener("click", function(event) {
-
-// };
-
+// Eventlistener to each answer button
+const options = [option1, option2, option3, option4];
+options.forEach(option => {
+    option.addEventListener("click", function() {
+        checkAnswer(option.textContent);
+    });
+});

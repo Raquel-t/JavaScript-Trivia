@@ -1,21 +1,15 @@
-/* global decorations */
+/* Global decorations */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    /* border: 1px solid rgb(255, 255, 255); */
-    /* edit main font later (not sure */
     font-family: "Sofia", sans-serif;
-    color: rgb(250, 244, 244);
+    color: #E5E5E5;
 }
 
 body {
-    background-image: url("../assets/images/lucas-kapla-wQLAGv4_OYs-unsplash.jpg");
-    
-    background-color: rgb(12, 12, 12);
+    background-color: #182952;
     overflow: hidden;
-    /* text-align: center; */
 }
 
 p {
@@ -24,23 +18,25 @@ p {
 
 button {
     outline: none;
-    background-color: #000000;
+    background-color: #182952;
+    color: #E5E5E5;
     font-size: 20px;
-    
 }
 
 h1, h2 {
     font-size: 25px;
-
-    background: linear-gradient(90deg, #ef3b80, #200dafca);
+    background: linear-gradient(90deg, #FF6B6B, #3A63D9);
     -webkit-background-clip: text;
     color: transparent;
     text-align: center;
-    text-align: center;
 }
 
-li{
+li {
     list-style: none;
+}
+
+input {
+    color: #000000;
 }
 
 /* Main outer section */
@@ -52,17 +48,16 @@ li{
     justify-content: start;
 }
 
-/* bar container */
-/* implement felx box instead of float */
+/* Bar container */
 .score-timer-bar p {
     float: right;
 }
 
-/* inner div */
+/* Inner div */
 .content {
-    background: #ffffff05;
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(10px);
     height: 100%;
     width: 50%;
     margin: 0 auto; 
@@ -71,14 +66,13 @@ li{
     justify-content: center;
 }
 
-
-/* header/quiz section content */
+/* Header/quiz section content */
 .starter, main {
     display: block;
     margin-bottom: 30vh;
     margin-left: 10%;
-    Margin-right:10%;
-    background-color: rgb(8, 8, 9);
+    margin-right: 10%;
+    background-color: rgba(8, 8, 9, 0.9); 
 }
 
 .starter p {
@@ -88,11 +82,9 @@ li{
 .starter button {
     display: block;
     margin: 0 auto;
-    background:#fdfdfd;
-    color:#000000;
-    border-radius: 5px 5px;
-
-
+    background: #fdfdfd;
+    color: #000000;
+    border-radius: 5px;
 }
 
 #startQuiz:hover {
@@ -103,19 +95,17 @@ li{
     cursor: pointer;
 }
 
-/* main quiz content */
-
+/* Main quiz content */
 main {
     display: block;
 }
 
-/* quiz screen */
+/* Quiz screen */
 .quizContainer {
     display: none;
 }
 
-
-/* finishing screen */
+/* Finishing screen */
 .end {
     display: none;
 }
@@ -125,12 +115,66 @@ main {
     display: none;
 }
 
-
 .score-screen ol {
     max-height: 200px;
 }
 
-/* add property or pesdue  */
 .score-screen ol:hover {
     overflow-y: scroll;
+}
+
+/* Transitions for smooth effects */
+button, input[type="submit"], input[type="button"] {
+    transition: all 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active, input[type="submit"]:active, input[type="button"]:active {
+    transform: scale(0.95);
+}
+
+/* Styling for input fields */
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.outer-space, .content, .starter, main {
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+p, li, h1, h2, button {
+    margin-bottom: 15px;
+}
+
+.score-screen ol li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Styling the scrollbar */
+.score-screen ol::-webkit-scrollbar {
+    width: 8px;
+}
+
+.score-screen ol::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.score-screen ol::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
 }
