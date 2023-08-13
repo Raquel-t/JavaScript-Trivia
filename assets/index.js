@@ -137,6 +137,10 @@ function qStart() {
 }
 
 function displayQuestion() {
+    // Hide qAnswer and elementBreak for the new question
+    qAnswer.style.display = "none";
+    elementBreak.style.display = "none";
+
     questionElement.textContent = questions[questionIndex].question;
     option1.textContent = questions[questionIndex].answers[0].text;
     option1.value = questions[questionIndex].answers[0].text;
@@ -154,14 +158,20 @@ function checkAnswer(answer) {
     
     if (answer === questions[questionIndex].answers.find(a => a.correct).text) {
         scoreResult += 10;  
+        proceedToNextQuestion();
     } else {
         timeLeft -= 10;   
         timerDisplay.textContent = "Time: " + timeLeft; 
         elementBreak.style.display = "block";
         qAnswer.style.display = "block";
         qAnswer.textContent = "Correct Answer: " + questions[questionIndex].answers.find(a => a.correct).text;
-    }
 
+        // timer to check the correct answer before moving to next Question. 
+        setTimeout(proceedToNextQuestion, 1000);
+    }
+}
+
+function proceedToNextQuestion() {
     questionIndex++;
 
     if (questionIndex < questions.length) {
